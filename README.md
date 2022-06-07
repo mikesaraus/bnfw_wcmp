@@ -5,7 +5,7 @@ Better Notification for Wordpress with WooCommerce Membership Plan
 
 ## Changes
 
-Added WooCommerce Membershp Plan Filter for `Active` subscriber
+Added WooCommerce Membershp Plan Filter for `Active` subscribers
 
 <br/>
 
