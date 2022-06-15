@@ -32,6 +32,6 @@ Fixed BNFW Search User AJAX Handler (used for more than 200+ users)
 
 <hr/>
 
-### Modefied by [Mike](https://github.com/mikesaraus)
+### Modified by [Mike](https://github.com/mikesaraus)
 
 ### ©[GrowModo](https://growmodo.com)
