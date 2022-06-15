@@ -31,6 +31,26 @@ if ( ! class_exists( 'BNFW_AJAX', false ) ) {
 			$roles_data = array();
 			$user_count = count_users();
 			$roles      = $wp_roles->get_names();
+			/**
+			 * GM - ms
+			 * Membership Plans
+			 */
+			$mem_plans_data = array();
+			$mem_plans = wc_memberships_get_membership_plans();
+			foreach ( $mem_plans as $plan ) {
+				$mem_plans_data[] = array(
+					'id'   => 'wc_mp_' . $plan->get_id(),
+					'text' => esc_html( $plan->get_name() ) . ' (#' . $plan->get_id() . ')',
+				);
+			}
+			$data = array(
+				array(
+					'id'       => 1,
+					'text'     => esc_html__( 'Membership Plans', 'bnfw' ),
+					'children' => $mem_plans_data,
+				),
+			);
+			/** End of Membership Plans */
 			foreach ( $roles as $role_slug => $role_name ) {
 				$count = 0;
 				if ( isset( $user_count['avail_roles'][ $role_slug ] ) ) {
@@ -41,12 +61,10 @@ if ( ! class_exists( 'BNFW_AJAX', false ) ) {
 					'text' => $role_name . ' (' . $count . ' Users)',
 				);
 			}
-			$data      = array(
-				array(
-					'id'       => 1,
-					'text'     => esc_html__( 'User Roles', 'bnfw' ),
-					'children' => $roles_data,
-				),
+			$data[] = array(
+				'id'       => 2,
+				'text'     => esc_html__( 'User Roles', 'bnfw' ),
+				'children' => $roles_data,
 			);
 			$query     = isset( $_GET['query'] ) ? sanitize_text_field( wp_unslash( $_GET['query'] ) ) : '';
 			$users     = get_users(
@@ -65,7 +83,7 @@ if ( ! class_exists( 'BNFW_AJAX', false ) ) {
 				);
 			}
 			$data[] = array(
-				'id'       => 2,
+				'id'       => 3,
 				'text'     => esc_html__( 'Users', 'bnfw' ),
 				'children' => $user_data,
 			);

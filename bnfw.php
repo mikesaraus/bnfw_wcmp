@@ -1,9 +1,9 @@
 <?php
 /**
  * Plugin Name: Better Notifications for WP [GrowModo]
- * Plugin URI: https://wordpress.org/plugins/bnfw/
+ * Plugin URI: https://github.com/mikesaraus/bnfw_wcmp
  * Description: Supercharge your WordPress notifications using a WYSIWYG editor and shortcodes. Default and new notifications available. Add more power with Add-ons.
- * Version: 1.8.11
+ * Version: 1.8.11_c1.2
  * Requires at least: 4.8
  * Requires PHP: 7.0
  * Author: Made with Fuel (customized by GrowModo)

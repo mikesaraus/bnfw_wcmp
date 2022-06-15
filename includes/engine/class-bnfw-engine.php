@@ -1287,21 +1287,17 @@ if ( ! class_exists( 'BNFW_Engine', false ) ) {
 			/**
 			 * Check if WooCommerce is activated
 			 */
-			if ( ! function_exists( 'is_woocommerce_activated' ) ) {
-				if ( ! class_exists( 'woocommerce' ) ) { return false; }
-			}
+			if ( ! class_exists( 'woocommerce' ) ) { return false; }
 			/**
 			 * Check if WooCommerce Memberships isn't active
 			 */ 
-			if ( ! function_exists( 'wc_memberships' ) ) {
-				return false;
-			}
+			if ( ! function_exists( 'wc_memberships' ) ) { return false; }
 			return true;
 		}
 
 		/**
 		 * GM - ms
-		 * Get all users with active woocommerce membership plan.
+		 * Get all users with active woocommerce subscription.
 		 *
 		 * @return array Users Data
 		 */

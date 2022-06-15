@@ -525,7 +525,7 @@ if ( ! class_exists( 'BNFW_Notification', false ) ) {
 
 					<td>
 						<select multiple name="cc[]" class="<?php echo sanitize_html_class( bnfw_get_user_select_class() ); ?>"
-								data-placeholder="<?php echo esc_attr( apply_filters( 'bnfw_email_dropdown_placeholder', __( 'Select User Roles / Users', 'bnfw' ) ) ); ?>" style="width:75%">
+								data-placeholder="<?php echo esc_attr( apply_filters( 'bnfw_email_dropdown_placeholder', __( 'Select Membership Plans / User Roles / Users', 'bnfw' ) ) ); ?>" style="width:75%">
 							<?php bnfw_render_users_dropdown( $setting['cc'] ); ?>
 						</select>
 					</td>
@@ -539,7 +539,7 @@ if ( ! class_exists( 'BNFW_Notification', false ) ) {
 
 					<td>
 						<select multiple name="bcc[]" class="<?php echo sanitize_html_class( bnfw_get_user_select_class() ); ?>"
-								data-placeholder="<?php echo esc_attr( apply_filters( 'bnfw_email_dropdown_placeholder', __( 'Select User Roles / Users', 'bnfw' ) ) ); ?>" style="width:75%">
+								data-placeholder="<?php echo esc_attr( apply_filters( 'bnfw_email_dropdown_placeholder', __( 'Select Membership Plans / User Roles / Users', 'bnfw' ) ) ); ?>" style="width:75%">
 							<?php bnfw_render_users_dropdown( $setting['bcc'] ); ?>
 						</select>
 					</td>
@@ -583,12 +583,12 @@ if ( ! class_exists( 'BNFW_Notification', false ) ) {
 				<tr valign="top" id="users">
 					<th scope="row">
 						<?php esc_html_e( 'Send To', 'bnfw' ); ?>
-						<div class="bnfw-help-tip"><p><?php esc_html_e( 'Choose the users and/or user roles to send this email notification to.', 'bnfw' ); ?></p></div>
+						<div class="bnfw-help-tip"><p><?php esc_html_e( 'Choose the membership plans, users and/or user roles to send this email notification to.', 'bnfw' ); ?></p></div>
 					</th>
 					<td>
 						<select multiple id="users-select" name="users[]"
 								class="<?php echo sanitize_html_class( bnfw_get_user_select_class() ); ?>"
-								data-placeholder="<?php echo esc_attr( apply_filters( 'bnfw_email_dropdown_placeholder', __( 'Select User Roles / Users', 'bnfw' ) ) ); ?>" style="width:75%">
+								data-placeholder="<?php echo esc_attr( apply_filters( 'bnfw_email_dropdown_placeholder', __( 'Select Membership Plans / User Roles / Users', 'bnfw' ) ) ); ?>" style="width:75%">
 							<?php bnfw_render_users_dropdown( $setting['users'] ); ?>
 						</select>
 					</td>
@@ -599,14 +599,14 @@ if ( ! class_exists( 'BNFW_Notification', false ) ) {
 						<?php esc_html_e( 'Except For', 'bnfw' ); ?>
 						<div class="bnfw-help-tip">
 							<p>
-								<?php esc_html_e( 'Choose the users and/or user roles that this notification should not be sent to.', 'bnfw' ); ?>
+								<?php esc_html_e( 'Choose the membership plans, users and/or user roles that this notification should not be sent to.', 'bnfw' ); ?>
 							</p>
 						</div>
 					</th>
 					<td>
 						<select multiple id="exclude-users-select" name="exclude-users[]"
 								class="<?php echo sanitize_html_class( bnfw_get_user_select_class() ); ?>"
-								data-placeholder="<?php echo esc_attr( apply_filters( 'bnfw_email_dropdown_placeholder', __( 'Select User Roles / Users', 'bnfw' ) ) ); ?>" style="width:75%">
+								data-placeholder="<?php echo esc_attr( apply_filters( 'bnfw_email_dropdown_placeholder', __( 'Select Membership Plans / User Roles / Users', 'bnfw' ) ) ); ?>" style="width:75%">
 							<?php bnfw_render_users_dropdown( $setting['exclude-users'] ); ?>
 						</select>
 					</td>
@@ -741,7 +741,7 @@ if ( ! class_exists( 'BNFW_Notification', false ) ) {
 
 			$strings = array(
 				'validation_element'           => apply_filters( 'bnfw_validation_element', '#users-select' ),
-				'empty_user'                   => esc_html__( 'You must choose at least one User or User Role to send the notification to before you can save', 'bnfw' ),
+				'empty_user'                   => esc_html__( 'You must choose at least one Membership Plan, User or User Role to send the notification to before you can save', 'bnfw' ),
 				'enableTags'                   => false,
 				'bnfw_users_search_ajax_nonce' => wp_create_nonce( 'bnfw_users_search_ajax_nonce' ),
 			);

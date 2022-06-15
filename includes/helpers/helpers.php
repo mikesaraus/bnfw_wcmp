@@ -85,6 +85,28 @@ if ( ! function_exists( 'bnfw_render_users_dropdown' ) ) {
 		$non_wp_users = $selected_users;
 		$user_count   = count_users();
 		?>
+		<!-- Membership Starts Here // GM - ms-->
+		<?php
+			if ( function_exists( 'wc_memberships' ) ) {
+				$mem_plans = wc_memberships_get_membership_plans();
+		?>
+			<optgroup label="<?php esc_attr_e( 'Membership Plans', 'bnfw' ); ?>">
+			<?php
+			foreach ( $mem_plans as $plan ) {
+				$plan_val_id = 'wc_mp_' . $plan->get_id();
+				$selected = selected( true, in_array( $plan_val_id, $selected_users, true ), false );
+				
+				if ( ! empty( $selected )) {
+					$non_wp_users = array_diff( $non_wp_users, array( $plan_val_id ) );
+				}
+
+				echo '<option value="', esc_attr( $plan_val_id ), '" ', $selected, '>', esc_html( $plan->get_name() ) , ' (#', $plan->get_id(), ')</option>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+			}
+			?>
+			</optgroup>
+		<?php } ?>
+		<!-- End of Membership Plans -->
+
 		<optgroup label="<?php esc_attr_e( 'User Roles', 'bnfw' ); ?>">
 			<?php
 			$roles = $wp_roles->get_names();
@@ -147,29 +169,6 @@ if ( ! function_exists( 'bnfw_render_users_dropdown' ) ) {
 		}
 		?>
 		</optgroup>
-
-		<!-- Membership Starts Here // GM - ms-->
-		<?php $mem_plans = wc_memberships_get_membership_plans(); ?>
-		<optgroup label="<?php esc_attr_e( '🔴 Membership Plans', 'bnfw' ); ?>">
-		<?php
-		
-		$val_prefix = 'wc_mp_';
-
-		foreach ( $mem_plans as $plan ) {
-			$plan_val_id = $val_prefix . $plan->get_id();
-
-			$selected = selected( true, in_array( $plan_val_id, $selected_users, true ), false );
-
-			if ( ! empty( $selected )) {
-				$non_wp_users = array_diff( $non_wp_users, array( $plan_val_id ) );
-			}
-
-			echo '<option value="', esc_attr( $plan_val_id ), '" ', $selected, '>', esc_html( $plan->get_name() ) , ' #', $plan->get_id(), '</option>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-		}
-
-		?>
-		</optgroup>
-		<!-- End of Membership Plans -->
 
 		<?php if ( ! empty( $non_wp_users ) ) { ?>
 			<optgroup label="<?php esc_attr_e( 'Non WordPress Users', 'bnfw' ); ?>">
