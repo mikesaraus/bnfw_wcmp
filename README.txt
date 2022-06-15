@@ -746,7 +746,8 @@ Please ensure that you check, double check and test your notifications before an
 
 === Custom Changes ===
 
-Added WooCommerce Membershp Plan Filter for `Active` subscriber
+@Since @06/07/2022
+@Link https://github.com/mikesaraus/bnfw_wcmp
 
 ### Modefied by [Mike](https://github.com/mikesaraus)
 ### ©[GrowModo](https://growmodo.com)
